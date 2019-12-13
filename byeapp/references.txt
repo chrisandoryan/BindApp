@@ -1,0 +1,4 @@
+https://medium.com/bitcraft/docker-composing-a-python-3-flask-app-line-by-line-93b721105777
+https://geleta.eu/2019/my-first-ssrf-using-dns-rebinfing/
+https://hackso.me/bsidestlv-web/#can-you-bypass-the-sop
+https://medium.com/bugbountywriteup/tokyowesterns-ctf-4th-2018-writeup-part-3-1c8510dfad3f
