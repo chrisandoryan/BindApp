@@ -45,7 +45,7 @@ def request_snapshot():
     # driver.set_window_size(800, 600)
 
     # sanity check
-    elif timeout < 0: timeout = 3
+    if timeout < 0: timeout = 3
     time.sleep(timeout)
 
     png = driver.get_screenshot_as_base64()
