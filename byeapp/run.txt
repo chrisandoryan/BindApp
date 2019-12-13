@@ -1,0 +1,2 @@
+sudo docker build -t byending_public .
+sudo docker run -d --rm -p 5000:5000 byending_public

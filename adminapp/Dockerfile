@@ -16,4 +16,4 @@ RUN pip install --upgrade pip && \
 
 EXPOSE 80
 
-CMD flask run --host=127.0.0.1
+CMD flask run --host=127.0.0.1 --port=80
