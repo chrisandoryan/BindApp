@@ -52,7 +52,7 @@ def request_snapshot():
     display = Display(visible=0, size=(800, 600))
     display.start()
 
-    driver = Firefox()
+    driver = Firefox(service_log_path='/var/log/challenges/geckodriver.log')
     driver.set_window_position(0, 0)
 
     driver.set_page_load_timeout(20)
