@@ -8,8 +8,9 @@ RUN mkdir /app
 
 RUN apt-get -y update
 RUN apt-get install dbus-x11 packagekit-gtk3-module libcanberra-gtk-module xvfb gtk2-engines-pixbuf zlib1g-dev xvfb libxcomposite1 libasound2 libdbus-glib-1-2 libgtk2.0-0 -y
+RUN apt-get install fonts-liberation libappindicator3-1 libasound2 libatk-bridge2.0-0 libnspr4 libnss3 lsb-release xdg-utils libxss1 libdbus-glib-1-2 curl unzip wget xvfb -y
 
-ENV DISPLAY=:0
+# ENV DISPLAY=:0
 
 # install firefox and geckodriver
 RUN GECKODRIVER_VERSION=`curl https://github.com/mozilla/geckodriver/releases/latest | grep -Po 'v[0-9]+.[0-9]+.[0-9]+'` && \
