@@ -13,6 +13,7 @@ def valid_target(url):
     ip = ""
     try:
         url = urlparse(url).netloc
+        url = url.split(':')[0]
         ip = socket.gethostbyname(url)
     except Exception as e:
         print(e)
