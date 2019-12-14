@@ -2,7 +2,7 @@ from flask import request, render_template, render_template_string, Response
 from selenium.webdriver import Chrome
 from app import app
 
-app.config['FLAG'] = "KASIHFLAGNYADISINIWOI"
+app.config['FLAG'] = "CCC{a_journ3y_into_dnssssti}"
 
 @app.route('/')
 @app.route('/index')
