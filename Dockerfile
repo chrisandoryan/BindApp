@@ -1,8 +1,8 @@
 FROM python:3.7.1
 
 ENV PYTHONDONTWRITEBYTECODE 1
-ENV FLASK_APP "byee.py"
-ENV FLASK_ENV "development"
+# ENV FLASK_APP "byee.py"
+# ENV FLASK_ENV "development"
 ENV FLASK_DEBUG True
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
@@ -33,6 +33,13 @@ RUN pip install --upgrade pip && \
     pip install pipenv && \
     pip install -r /app/requirements.txt
 
-EXPOSE 9000
+RUN mkdir -p /var/log/challenges/
 
-CMD flask run --host=0.0.0.0 --port=9000
+# RUN echo "files = /app/challs.conf" >> /etc/supervisord.conf
+COPY challs.conf /etc/supervisor/challs.conf
+
+EXPOSE 8000
+
+# CMD flask run --host=0.0.0.0 --port=9000
+
+CMD ["supervisord", "-c", "/etc/supervisor/challs.conf"]
