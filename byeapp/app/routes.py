@@ -15,6 +15,7 @@ def valid_target(url):
         url = urlparse(url).netloc
         url = url.split(':')[0]
         ip = socket.gethostbyname(url)
+        print("IP: ", ip)
     except Exception as e:
         print(e)
         return False
@@ -33,7 +34,7 @@ def index():
 @app.route('/snapshot', methods=['POST'])
 def request_snapshot():
     url = request.form.get('url', "https://petircysec.com/")
-    timeout = request.form.get('timeout', 1)
+    timeout = request.form.get('timeout', 3)
 
     if url == "":
         return "Oops, please check your input?", 400
@@ -46,7 +47,11 @@ def request_snapshot():
     except Exception as e:
         timeout = 3
 
-    if timeout > 100: timeout = 10
+    # sanity check
+    if timeout > 180: timeout = 30
+    if timeout < 0: timeout = 3
+    
+    print("Start Sleeping #1")
 
     time.sleep(timeout)
 
@@ -58,12 +63,12 @@ def request_snapshot():
 
     driver.set_page_load_timeout(20)
     driver.implicitly_wait(20)
+    
+    print("Sending GET request")
     driver.get(url)
-
-
-    # sanity check
-    if timeout < 0: timeout = 3
-    time.sleep(timeout)
+    
+    print("Start Sleeping #2")
+    time.sleep(int(timeout / 2))
 
     png = driver.get_screenshot_as_base64()
     driver.quit()
