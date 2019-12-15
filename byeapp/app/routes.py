@@ -48,7 +48,7 @@ def request_snapshot():
         timeout = 3
 
     # sanity check
-    if timeout > 180: timeout = 30
+    if timeout > 150: timeout = 30
     if timeout < 0: timeout = 3
     
     print("Start Sleeping #1")
@@ -68,7 +68,7 @@ def request_snapshot():
     driver.get(url)
     
     print("Start Sleeping #2")
-    time.sleep(int(timeout / 2))
+    time.sleep(10)
 
     png = driver.get_screenshot_as_base64()
     driver.quit()
