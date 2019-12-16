@@ -19,7 +19,7 @@ def valid_target(url):
     except Exception as e:
         print(e)
         return False
-    for ban in ["localhost", "127.0.0.1", "::1", "0.0.0.0"]:
+    for ban in ["localhost", "127.0.0.1", "::1", "0.0.0.0", "0"]:
         if str(ip) == "127.0.0.1":
             return False
         if ban in url:
